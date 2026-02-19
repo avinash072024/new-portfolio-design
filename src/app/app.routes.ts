@@ -9,11 +9,11 @@ import { SkillsComponent } from './pages/skills/skills.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent, title: 'Home | My Portfolio' },
-    { path: 'about', component: AboutComponent, title: 'About Me | My Portfolio' },
-    { path: 'projects', component: ProjectsComponent, title: 'My Work | My Portfolio' },
-    { path: 'contact', component: ContactComponent, title: 'Contact Me | My Portfolio' },
-    { path: 'skills', component: SkillsComponent, title: 'My Skills | My Portfolio' },
+    { path: 'home', component: HomeComponent, title: `Home | ${Constants.APP_TITLE}` },
+    { path: 'about', component: AboutComponent, title: `About Me | ${Constants.APP_TITLE}` },
+    { path: 'projects', component: ProjectsComponent, title: `My Projects | ${Constants.APP_TITLE}` },
+    { path: 'contact', component: ContactComponent, title: `Contact Me | ${Constants.APP_TITLE}` },
+    { path: 'skills', component: SkillsComponent, title: `My Skills | ${Constants.APP_TITLE}` },
     // Redirect unknown paths to home
     { path: '**', component: NotFoundComponent, title: '404 - Not Found' }
 ];

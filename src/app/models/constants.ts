@@ -1,3 +1,4 @@
 export class Constants {
-    public static APP_NAME: string = 'Avinash Marbhal';
+    public static readonly APP_NAME = '</> Avinash Marbhal';
+    public static readonly APP_TITLE = 'Portfolio';
 }

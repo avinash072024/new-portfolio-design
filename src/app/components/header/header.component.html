@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg fixed-top transition-all"
+    [ngClass]="isScrolled() ? 'navbar-glass shadow-sm py-2' : 'bg-transparent py-4'">
+    <div class="container">
+
+        <a class="navbar-brand fw-bolder fs-3" routerLink="/">
+            <span class="brand-gradient">{{websiteName}}</span><span class="text-primary">.</span>
+        </a>
+
+        <div class="d-flex align-items-center">
+            <div class="d-block d-md-block d-lg-none me-3">
+                <app-theme-toggler />
+            </div>
+
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <div class="hamburger-icon" [class.open]="isMobileMenuOpen()">
+                    <span></span><span></span><span></span>
+                </div>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                @for (link of navLinks; track link.path) {
+                <li class="nav-item mx-lg-2">
+                    <a class="nav-link modern-link" routerLinkActive="active" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="link.path"
+                        (click)="closeNavbar()">
+                        {{ link.label }}
+                    </a>
+                </li>
+                }
+
+                <li class="nav-item ms-lg-4 d-none d-md-none d-lg-block" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <app-theme-toggler />
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

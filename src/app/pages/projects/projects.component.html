@@ -1,0 +1,154 @@
+<section class="projects-container py-5 mt-5">
+    <div class="container">
+        
+
+        <div class="sticky-header-bar py-3 mb-4" [class.is-stuck]="isStuck()">
+            <div class="d-flex justify-content-between align-items-center">
+                <!-- <h2 class="fw-bold m-0">My <span class="text-primary">Portfolio</span></h2> -->
+                <h4 class="fw-bold m-0">My <span class="text-primary">Projects</span> ({{projects.length}})</h4>
+
+                <div class="view-toggle-group p-1 rounded-pill bg-body-tertiary border d-none d-sm-none d-md-block">
+                    <button (click)="toggleView('grid')" [class.active]="viewMode() === 'grid'"
+                        class="btn btn-sm rounded-pill">
+                        <i class="bi bi-grid-fill me-1"></i> Grid
+                    </button>
+                    <button (click)="toggleView('list')" [class.active]="viewMode() === 'list'"
+                        class="btn btn-sm rounded-pill">
+                        <i class="bi bi-list-ul me-1"></i> List
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4" [ngClass]="viewMode() === 'grid' ? 'grid-view' : 'list-view'">
+            @for (project of projects; track project.title) {
+            <div [class]="viewMode() === 'grid' ? 'col-lg-4 col-md-6' : 'col-12'">
+                <div class="project-item shadow-sm border rounded-4 bg-body overflow-hidden h-100">
+                    <div class="row g-0 h-100">
+
+                        <!-- <div [class]="viewMode() === 'grid' ? 'col-12' : 'col-md-4'">
+                            <div class="img-container">
+                                <img [src]="project.image" class="img-fluid" [alt]="project.title">
+                            </div>
+                        </div> -->
+
+                        <div [class]="viewMode() === 'grid' ? 'col-12' : 'col-12'">
+                            <div class="p-4 d-flex flex-column justify-content-center h-100">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <span class="badge bg-primary-subtle text-primary rounded-pill">{{ project.category
+                                        }}</span>
+                                    <small class="text-secondary fw-bold">{{ project.date }}</small>
+                                </div>
+                                <h4 class="fw-bold">{{ project.title }}</h4>
+                                <!-- <p class="text-secondary small line-clamp">{{ project.desc }}</p> -->
+                                <p class="text-secondary small line-clamp">
+                                    {{ getLineText(project.desc[0]) }}
+                                </p>
+
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <!-- <div class="tools-group">
+                    @for (tool of project.tools; track tool) {
+                    <span class="tool-dot">#{{ tool }}</span>
+                    }
+                  </div> -->
+                                    <div class="tools-group">
+                                        @for (tool of project.tools; track tool; let i = $index) {
+                                        @if (i < 2) { <span class="tool-dot">#{{ tool }}</span>
+                                            }
+                                            }
+                                            @if (project.tools.length > 2) {
+                                            <span class="text-secondary small">+{{ project.tools.length - 2 }}
+                                                more</span>
+                                            }
+                                    </div>
+                                    <!-- <button class="btn btn-outline-primary btn-sm rounded-pill px-3">View Details</button> -->
+                                    <button class="btn btn-outline-primary btn-sm rounded-pill px-3"
+                                        data-bs-toggle="modal" data-bs-target="#projectModal"
+                                        (click)="openDetails(project)">
+                                        Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+<!-- modal -->
+<div class="modal fade" id="projectModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+
+            @if (selectedProject(); as project) {
+            <!-- <div class="position-relative">
+        <img [src]="project.image" class="img-fluid w-100 modal-hero-img" [alt]="project.title">
+        <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3 shadow-none"
+          data-bs-dismiss="modal"></button>
+      </div> -->
+
+            <div class="modal-body p-4 p-md-5">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div>
+                        <span class="badge bg-primary-subtle text-primary rounded-pill mb-2">{{ project.category
+                            }}</span>
+                        <h2 class="fw-bold mb-0">{{ project.title }}</h2>
+                    </div>
+                    <div class="text-end">
+                        <small class="text-secondary d-block">Completed</small>
+                        <span class="fw-bold">{{ project.date }}</span>
+                    </div>
+                </div>
+
+                <hr class="my-4 opacity-10">
+
+                <h5 class="fw-bold">Project Overview</h5>
+                <ul class="list-unstyled">
+                    @for (item of project.desc; track $index) {
+                    <li class="d-flex align-items-start mb-3">
+                        <i class="bi bi-arrow-right-short text-primary fs-4 me-2"></i>
+                        <span class="text-secondary">{{ getLineText(item) }}</span>
+                    </li>
+                    }
+                </ul>
+
+                <div class="row g-4 my-4">
+                    <div class="col-md-12">
+                        <h6 class="fw-bold"><i class="bi bi-gear-wide-connected text-primary me-2"></i> Technologies
+                        </h6>
+                        <div class="d-flex flex-wrap gap-2">
+                            @for (tool of project.tools; track tool) {
+                            <span class="badge bg-body-tertiary border text-body rounded-pill px-3">{{ tool
+                                }}</span>
+                            }
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-6">
+            <h6 class="fw-bold"><i class="bi bi-check2-circle text-primary me-2"></i> Key Features</h6>
+            <ul class="list-unstyled small text-secondary">
+              @for (feature of project.features; track feature) {
+              <li><i class="bi bi-dot text-primary"></i> {{ feature }}</li>
+              }
+            </ul>
+          </div> -->
+                </div>
+
+                <div class="modal-footer border-0 p-0 pt-4 d-flex justify-content-between">
+                    @if (project.link) {
+                    <a [href]="project.link" class="btn btn-primary rounded-pill px-4" target="_blank">Visit Live Site
+                        <i class="bi bi-box-arrow-up-right ms-2"></i></a>
+                    } @else {
+                    <div></div>
+                    }
+                    <button class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>

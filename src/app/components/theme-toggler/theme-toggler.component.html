@@ -1,0 +1,4 @@
+<button (click)="toggleTheme()" class="theme-toggle-btn shadow"
+    [title]="isDarkMode() ? 'Switch to Light Mode' : 'Switch to Dark Mode'">
+    <i [class]="isDarkMode() ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill'"></i>
+</button>

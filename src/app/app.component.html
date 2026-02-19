@@ -1,0 +1,23 @@
+<!-- <div appDisableRightClick> -->
+
+<!-- <router-outlet /> -->
+
+<!-- start scroll top -->
+<!-- <button *ngIf="showScrollTopButton" class="scroll-top-button" (click)="scrollToTop()">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button> -->
+<!-- end scroll top -->
+<!-- </div> -->
+
+<div class="d-flex flex-column min-vh-100">
+    <app-header></app-header>
+
+    <main class="flex-grow-1">
+        <!-- <div class="container"> -->
+            <router-outlet></router-outlet>
+        <!-- </div> -->
+    </main>
+
+    <app-footer></app-footer>
+</div>
+<app-scroll-top></app-scroll-top>

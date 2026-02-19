@@ -1,0 +1,45 @@
+<section class="skills-section py-5">
+    <div class="container mt-5 pt-5">
+
+        <div class="text-center mb-5">
+            <h6 class="text-primary fw-bold text-uppercase ls-2">Expertise</h6>
+            <h2 class="display-4 fw-bolder mb-3">Skills & <span class="text-primary">Tools</span></h2>
+            <p class="text-secondary mx-auto" style="max-width: 600px;">
+                A showcase of my technical stack and the level of proficiency I've gained through years of building
+                digital products.
+            </p>
+        </div>
+
+        @for (cat of categories; track cat.title) {
+        <div class="mb-5">
+            <h3 class="h4 fw-bold mb-4 text-gradient">{{ cat.title }}</h3>
+            <div class="row g-4">
+                @for (skill of cat.skills; track skill.name) {
+                <div class="col-lg-4 col-md-6">
+                    <div class="skill-card p-4 rounded-4 shadow-sm border border-opacity-10">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="skill-icon-box me-3" [style.color]="skill.color">
+                                <i class="{{ skill.icon }} fs-2"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-0">{{ skill.name }}</h5>
+                                <small class="text-secondary">Proficiency: {{ skill.level }}%</small>
+                            </div>
+                        </div>
+
+                        <div class="skill-progress-wrap mt-3">
+                            <div class="progress"
+                                style="height: 6px; background-color: rgba(var(--bs-primary-rgb), 0.1);">
+                                <div class="progress-bar rounded-pill" [style.width.%]="skill.level"
+                                    [style.background-color]="skill.color">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+        }
+    </div>
+</section>

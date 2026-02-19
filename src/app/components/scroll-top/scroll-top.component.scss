@@ -1,0 +1,43 @@
+// scroll-top.component.scss
+
+.scroll-btn {
+    // Positioning
+    position: fixed;
+    bottom: 1.2rem;
+    right: 1.2rem;
+    z-index: 1050; // High z-index to stay above Bootstrap navbars
+
+    // Sizing
+    width: 50px;
+    height: 50px;
+
+    // Bootstrap Color Mode Integration
+    // Using 'btn-primary' logic or custom variables
+    background-color: var(--bs-primary);
+    color: var(--bs-white);
+
+    // Shapes & Shadows
+    border: none;
+    border-radius: 50%;
+    box-shadow: var(--bs-box-shadow);
+
+    // Centering the icon
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: var(--bs-primary-border-subtle);
+        color: var(--bs-primary-text-emphasis);
+        transform: translateY(-5px);
+        box-shadow: var(--bs-box-shadow-lg);
+    }
+
+    // Dark Mode Adjustments (Automatic if [data-bs-theme="dark"] is on <html>)
+    [data-bs-theme="dark"] & {
+        background-color: var(--bs-primary-bg-subtle);
+        color: var(--bs-primary-text-emphasis);
+        border: 1px solid var(--bs-primary-border-subtle);
+    }
+}

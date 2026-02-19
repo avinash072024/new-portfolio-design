@@ -1,0 +1,86 @@
+<section class="about-page">
+    <div class="about-hero py-5 position-relative">
+        <div class="container mt-0 mt-md-5">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="profile-card p-2 rounded-5 shadow-lg">
+                        <!-- <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=600" alt="Profile" class="img-fluid rounded-5 w-100" style="height: 30rem;"> -->
+                        <img src="assets/images/profile-image-about.png" alt="Profile"
+                            class="img-fluid rounded-5 w-100 profile-pic" loading="eager">
+                    </div>
+                </div>
+                <div class="col-lg-7 ps-lg-5">
+                    <h6 class="text-primary fw-bold text-uppercase ls-2">Discover</h6>
+                    <h1 class="display-3 fw-bolder mb-4">About <span class="text-gradient">Me</span></h1>
+                    <p class="lead text-secondary mb-4">
+                        I am a creative developer who bridges the gap between design and technology.
+                        With a strong foundation in <span class="text-primary fw-medium">Angular</span> and <span class="text-primary fw-medium">Bootstrap</span>, I build products that are as functional as
+                        they are
+                        beautiful.
+                    </p>
+                    <div class="row g-3">
+                        <div class="col-6 col-md-3">
+                            <div class="stat-box p-3 rounded-4 bg-body-tertiary text-center">
+                                <h3 class="fw-bold mb-0">4+</h3>
+                                <small class="text-secondary">Years Experience</small>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="stat-box p-3 rounded-4 bg-body-tertiary text-center">
+                                <h3 class="fw-bold mb-0">10</h3>
+                                <small class="text-secondary">Projects</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row g-5">
+
+            <div class="col-md-6">
+                <h3 class="fw-bold mb-5"><i class="bi bi-briefcase text-primary me-2"></i> Experience</h3>
+                <div class="main-timeline">
+                    @for (item of experience; track item.role) {
+                    <div class="timeline-item">
+                        <span class="timeline-date">{{ item.year }}</span>
+                        <h5 class="fw-bold mt-2">{{ item.role }}</h5>
+                        <h6 class="text-primary small mb-2">{{ item.company }}</h6>
+                        <p class="text-secondary small">{{ item.desc }}</p>
+                    </div>
+                    }
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <h3 class="fw-bold mb-5"><i class="bi bi-mortarboard text-primary me-2"></i> Education</h3>
+                <div class="main-timeline">
+                    @for (item of education; track item.degree) {
+                    <div class="timeline-item">
+                        <span class="timeline-date">{{ item.year }}</span>
+                        <h5 class="fw-bold mt-2">{{ item.degree }}</h5>
+                        <h6 class="text-primary small mb-2">{{ item.school }}</h6>
+                        <p class="text-secondary small">{{ item.desc }}</p>
+                    </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="container py-5">
+    <div
+        class="cta-card bg-primary text-white p-4 p-md-5 rounded-4 shadow-lg d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <div class="text-center text-md-start mb-4 mb-md-0">
+            <h2 class="fw-bold mb-1">Do you want to hire me?</h2>
+            <p class="mb-0 opacity-75">I'm currently available for full-time roles.</p>
+        </div>
+        <a routerLink="/contact" class="btn btn-light btn-lg rounded-pill px-4 fw-bold shadow-sm">
+            Let's Chat <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+    </div>
+</div>

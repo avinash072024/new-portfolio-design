@@ -1,0 +1,52 @@
+<section class="contact-section">
+    <div class="contact-container">
+
+        <!-- Header -->
+        <div class="header-section">
+            <p class="subtitle animate-fade-in">Let's Connect</p>
+            <h1 class="main-title animate-slide-up">Get in <span class="highlight">Touch</span></h1>
+        </div>
+
+        <!-- Contact Items -->
+        <div class="contact-items">
+
+            <!-- Location -->
+            <a class="contact-item animate-slide-up" style="animation-delay: 0.1s">
+                <div class="icon-wrapper">
+                    <i class="bi bi-geo-alt-fill"></i>
+                </div>
+                <div class="content">
+                    <span class="label">Location</span>
+                    <p class="value">{{ location }}</p>
+                </div>
+                <div class="arrow"><i class="bi bi-arrow-right"></i></div>
+            </a>
+
+            <!-- Email -->
+            <a [href]="'mailto:' + email" class="contact-item animate-slide-up" style="animation-delay: 0.2s">
+                <div class="icon-wrapper">
+                    <i class="bi bi-envelope-fill"></i>
+                </div>
+                <div class="content">
+                    <span class="label">Email</span>
+                    <p class="value">{{ email }}</p>
+                </div>
+                <div class="arrow"><i class="bi bi-arrow-right"></i></div>
+            </a>
+
+            <!-- Mobile -->
+            <a [href]="'tel:' + mobile" class="contact-item animate-slide-up" style="animation-delay: 0.3s">
+                <div class="icon-wrapper">
+                    <i class="bi bi-telephone-fill"></i>
+                </div>
+                <div class="content">
+                    <span class="label">Mobile</span>
+                    <p class="value">{{ mobile }}</p>
+                </div>
+                <div class="arrow"><i class="bi bi-arrow-right"></i></div>
+            </a>
+
+        </div>
+
+    </div>
+</section>

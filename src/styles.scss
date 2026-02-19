@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+:root {
+    --font-family: "Nunito Sans", sans-serif;
+}
+
+html {
+    scrollbar-width: none;
+}
+
+body {
+    font-family: var(--font-family) !important;
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and older */
+    user-select: none;
+    /* Standard syntax */
+}
+
+.about-section,
+.contact-section,
+.projects-section,
+.skills-section {
+    .underline {
+        width: 80px;
+        height: 4px;
+        background-color: var(--bs-primary);
+        border-radius: 2px;
+    }
+}
+
+section {
+    overflow: hidden;
+}
+
+.profile-pic {
+    height: 30rem;
+}
+
+@media screen and (max-width: 1000px) {
+    .profile-pic {
+        height: 45rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .profile-pic {
+        height: auto;
+    }
+}

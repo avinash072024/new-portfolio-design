@@ -1,0 +1,88 @@
+<section class="hero-wrapper d-flex align-items-center position-relative overflow-hidden">
+    <div class="blob-1"></div>
+    <div class="blob-2"></div>
+
+    <div class="container position-relative z-3 mt-5 pt-5 pt-md-0">
+        <div class="row align-items-center min-vh-100 py-5">
+
+            <div class="col-lg-7 text-center text-lg-start">
+                <div class="badge rounded-pill bg-primary-subtle text-primary px-3 py-2 mb-4 animate-fade-in">
+                    🚀 Available for new opportunity
+                </div>
+
+                <h1 class="display-1 fw-bolder mb-3 main-title animate-slide-up">
+                    Crafting <span class="text-gradient">Digital</span><br>
+                    Experiences.
+                </h1>
+
+                <p class="lead text-secondary mb-5 pe-lg-5 animate-slide-up">
+                    Hi, I'm <span class="fw-bold text-body">{{ name() }}</span>. I specialize in building
+                    high-performance applications with <span class="text-primary fw-medium">Angular v20</span>
+                    and modern web ecosystems such as <span class="text-primary fw-medium">Bootstrap & Tailwind
+                        CSS</span>.
+                </p>
+
+                <div
+                    class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start animate-btns">
+                    <a routerLink="/projects" class="btn btn-primary btn-lg rounded-pill px-5 py-3 shadow-lg">
+                        View Projects <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+
+                    <button type="button" (click)="downloadResume()"
+                        class="btn btn-outline-primary btn-lg rounded-pill px-5 py-3">
+                        Download Resume <i class="bi bi-download ms-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-lg-5 mt-5 mt-lg-0">
+                <div class="hero-visual-container">
+                    <div class="profile-frame shadow-2xl">
+                        <!-- <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=600" alt="Profile" class="img-fluid rounded-4 w-100" style="height: 30rem;"> -->
+                        <img src="assets/images/profile-image-home.png" alt="Profile"
+                            class="img-fluid rounded-4 w-100 profile-pic" loading="eager">
+                    </div>
+
+                    <div class="floating-card card-1 shadow-sm">
+                        <i class="bi bi-code-slash text-primary me-2"></i> Clean Code
+                    </div>
+                    <div class="floating-card card-2 shadow-sm">
+                        <i class="bi bi-lightning-charge-fill text-warning me-2"></i> Fast Performance
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container py-5">
+    <div
+        class="cta-card bg-primary text-white p-4 p-md-5 rounded-4 shadow-lg d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <div class="text-center text-md-start mb-4 mb-md-0">
+            <h2 class="fw-bold mb-1">Ready to start a project?</h2>
+            <p class="mb-0 opacity-75">I'm currently available for freelance work and full-time roles.</p>
+        </div>
+        <a routerLink="/contact" class="btn btn-light btn-lg rounded-pill px-4 fw-bold shadow-sm">
+            Let's Chat <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center mb-0">
+                        <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                        <p class="ms-2 mb-0">Resume downloaded!</p>
+                    </div>
+                    <button type="button" class="btn btn-link btn-sm rounded-circle text-danger" data-bs-dismiss="modal"
+                        style="width: 20px;"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

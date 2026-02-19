@@ -45,8 +45,13 @@ export class HeaderComponent {
     this.isDarkMode.set(this.themeService.getCurrentTheme() === 'dark');
   }
 
-  closeNavbar() {
-    // ... your existing logic to hide the bootstrap collapse ...
-    this.isMobileMenuOpen.set(false);
+  openMenubar(act: boolean): void {
+    this.isMobileMenuOpen.set(!act);
+    // alert(this.isMobileMenuOpen())
   }
+
+  // closeNavbar() {
+  //   // ... your existing logic to hide the bootstrap collapse ...
+  //   this.isMobileMenuOpen.set(false);
+  // }
 }

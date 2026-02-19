@@ -11,27 +11,35 @@
                 <app-theme-toggler />
             </div>
 
-            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav">
-                <div class="hamburger-icon" [class.open]="isMobileMenuOpen()">
-                    <span></span><span></span><span></span>
-                </div>
-            </button>
+            <div class="d-block d-md-block d-lg-none">
+                <button class="navbar-toggler theme-toggle-btn shadow" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" (click)="openMenubar(isMobileMenuOpen())">
+                    <!-- <div class="hamburger-icon">
+                        <span></span><span></span><span></span>
+                    </div> -->
+                    @if (isMobileMenuOpen()) {
+                    <i class="bi bi-x-lg"></i>
+                    } @else {
+                    <i class="bi bi-grid-fill"></i>
+                    }
+                </button>
+            </div>
         </div>
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-center">
                 @for (link of navLinks; track link.path) {
-                <li class="nav-item mx-lg-2">
+                <li class="nav-item mx-lg-2" (click)="openMenubar(isMobileMenuOpen())">
                     <a class="nav-link modern-link" routerLinkActive="active" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNav" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="link.path"
-                        (click)="closeNavbar()">
+                        data-bs-target="#navbarNav" [routerLinkActiveOptions]="{ exact: true }"
+                        [routerLink]="link.path">
                         {{ link.label }}
                     </a>
                 </li>
                 }
 
-                <li class="nav-item ms-lg-4 d-none d-md-none d-lg-block" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <li class="nav-item ms-lg-4 d-none d-md-none d-lg-block" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
                     <app-theme-toggler />
                 </li>
             </ul>

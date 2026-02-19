@@ -37,7 +37,7 @@ export class HeaderComponent {
     { path: '/skills', label: 'Skills' },
     { path: '/projects', label: 'Projects' },
     { path: '/contact', label: 'Contact' },
-    { path: '/contact', label: 'Get Touch' }
+    { path: '/contacts', label: 'Get Touch' }
   ];
 
   toggleTheme(): void {

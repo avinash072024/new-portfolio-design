@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { TiltDirective } from '../../directives/tilt.directive';
 
 @Component({
   selector: 'app-skills',
-  imports: [],
+  imports: [TiltDirective],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss'
 })

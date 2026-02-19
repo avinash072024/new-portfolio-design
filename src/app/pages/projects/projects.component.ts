@@ -1,5 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, HostListener, signal } from '@angular/core';
+import { TiltDirective } from '../../directives/tilt.directive';
 
 interface ProjectDescription {
   [key: string]: string;
@@ -17,7 +18,7 @@ interface Project {
 
 @Component({
   selector: 'app-projects',
-  imports: [NgClass],
+  imports: [NgClass, TiltDirective],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })

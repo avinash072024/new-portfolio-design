@@ -17,10 +17,10 @@
     .project-item {
         transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 
-        &:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
-        }
+        // &:hover {
+        //     transform: translateY(-5px);
+        //     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+        // }
     }
 
     .img-container {

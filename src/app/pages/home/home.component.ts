@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { TiltDirective } from '../../directives/tilt.directive';
 declare var $: any;
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TiltDirective],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

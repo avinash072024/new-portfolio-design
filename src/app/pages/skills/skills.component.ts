@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { TiltDirective } from '../../directives/tilt.directive';
 
 @Component({
   selector: 'app-skills',
-  imports: [TiltDirective],
+  imports: [],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss'
 })
@@ -25,10 +24,10 @@ export class SkillsComponent {
     {
       title: 'Backend & Database',
       skills: [
-        { name: 'Node.js', icon: 'bi-server', level: 80, color: '#339933' },
+        { name: 'Node.js', icon: 'ti ti-brand-nodejs', level: 80, color: '#339933' },
         { name: 'SQL Server', icon: 'bi-database-fill', level: 75, color: '#4479a1' },
         { name: 'MongoDB', icon: 'bi bi-leaf-fill', level: 85, color: '#47a248' }, // Added MongoDB
-        { name: 'Firebase', icon: 'bi-fire', level: 70, color: '#ffca28' }
+        { name: 'Firebase', icon: 'ti ti-brand-firebase', level: 70, color: '#ffca28' }
       ]
     },
     {

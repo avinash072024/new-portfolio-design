@@ -1,6 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, HostListener, signal } from '@angular/core';
-import { TiltDirective } from '../../directives/tilt.directive';
+import * as bootstrap from 'bootstrap';
+declare var $: any;
 
 interface ProjectDescription {
   [key: string]: string;
@@ -18,7 +19,7 @@ interface Project {
 
 @Component({
   selector: 'app-projects',
-  imports: [NgClass, TiltDirective],
+  imports: [NgClass],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
@@ -192,11 +193,19 @@ export class ProjectsComponent {
 
   openDetails(project: any) {
     this.selectedProject.set(project);
+    $('#projectModal').modal('show');
   }
 
   getLineText(descItem: any): string {
     if (!descItem) return '';
     const values = Object.values(descItem);
     return values.length > 0 ? String(values[0]) : '';
+  }
+
+  ngAfterViewInit() {
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map((tooltipTriggerEl) => {
+      return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
   }
 }

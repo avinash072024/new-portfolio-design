@@ -22,8 +22,7 @@
 
         <div class="row g-4" [ngClass]="viewMode() === 'grid' ? 'grid-view' : 'list-view'">
             @for (project of projects; track project.title) {
-            <div appTilt [maxTilt]="viewMode() !== 'grid' ? 0 : 20" [scale]="1" [speed]="300"
-                [class]="viewMode() === 'grid' ? 'col-lg-4 col-md-6' : 'col-12'">
+            <div [class]="viewMode() === 'grid' ? 'col-lg-4 col-md-6' : 'col-12'">
                 <div class="project-item shadow-sm border rounded-4 bg-body overflow-hidden h-100">
                     <div class="row g-0 h-100">
 
@@ -64,7 +63,7 @@
                                     </div>
                                     <!-- <button class="btn btn-outline-primary btn-sm rounded-pill px-3">View Details</button> -->
                                     <button class="btn btn-outline-primary btn-sm rounded-pill px-3"
-                                        data-bs-toggle="modal" data-bs-target="#projectModal"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="View Project Details"
                                         (click)="openDetails(project)">
                                         Details
                                     </button>

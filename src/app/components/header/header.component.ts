@@ -1,4 +1,4 @@
-import { DOCUMENT, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component, HostListener, inject, Inject, OnInit, Renderer2, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Constants } from '../../models/constants';
@@ -41,17 +41,10 @@ export class HeaderComponent {
 
   toggleTheme(): void {
     this.themeService.toggleTheme();
-    // Update local signal to swap icons
     this.isDarkMode.set(this.themeService.getCurrentTheme() === 'dark');
   }
 
-  openMenubar(act: boolean): void {
-    this.isMobileMenuOpen.set(!act);
-    // alert(this.isMobileMenuOpen())
+  openMenubar(): void {
+    this.isMobileMenuOpen.update(v => !v);
   }
-
-  // closeNavbar() {
-  //   // ... your existing logic to hide the bootstrap collapse ...
-  //   this.isMobileMenuOpen.set(false);
-  // }
 }

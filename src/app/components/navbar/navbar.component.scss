@@ -25,7 +25,7 @@
 
 .brand-gradient {
     background: linear-gradient(45deg, var(--bs-primary), #a155ff);
-    --webkit-background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }

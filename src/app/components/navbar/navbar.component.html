@@ -11,7 +11,7 @@
         </a>
 
         <div class="collapse navbar-collapse d-none d-lg-block">
-            <ul class="navbar-nav ms-auto align-items-center">
+            <ul class="navbar-nav mx-auto align-items-center">
                 @for (link of navLinks; track link.path) {
                 <li class="nav-item mx-2">
                     <a class="nav-link modern-link" routerLinkActive="active"
@@ -20,10 +20,11 @@
                     </a>
                 </li>
                 }
-                <li class="nav-item ms-4">
-                    <app-theme-toggler />
-                </li>
+
             </ul>
+            <div class="nav-item ms-4">
+                <app-theme-toggler />
+            </div>
         </div>
 
         <div class="d-flex align-items-center d-lg-none">
@@ -51,7 +52,7 @@
         <ul class="navbar-nav gap-3">
             @for (item of navLinks; track item.id) {
             <li class="nav-item">
-                <a class="nav-link fw-medium py-3 px-4 rounded-5 bg-body-tertiary d-flex justify-content-between align-items-center"
+                <a class="nav-link fw-medium py-2 px-4 rounded-5 bg-body-secondary d-flex justify-content-between align-items-center"
                     routerLink="{{item.path}}" routerLinkActive="active-mobile" data-bs-dismiss="offcanvas">
                     {{item.label}}
                     <i class="bi bi-arrow-right-short opacity-50"></i>

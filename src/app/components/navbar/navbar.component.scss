@@ -25,7 +25,7 @@
 
 .brand-gradient {
     background: linear-gradient(45deg, var(--bs-primary), #a155ff);
-    -webkit-background-clip: text;
+    --webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
@@ -108,8 +108,8 @@
 
 // Offcanvas Width & Transitions
 .offcanvas {
-    width: 80% !important;
-    max-width: 300px;
+    width: 75% !important;
+    max-width: 270px;
     z-index: 1055;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }

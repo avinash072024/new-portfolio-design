@@ -54,7 +54,7 @@
 
     .line-clamp {
         display: -webkit-box;
-        -webkit-line-clamp: 2;
+        --webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
@@ -149,4 +149,82 @@
     &:hover {
         box-shadow: var(--bs-box-shadow) !important;
     }
+}
+
+
+// Custom Scrollbar for Modal Body
+.modal-body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--bs-primary-bg-subtle) transparent;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--bs-primary-border-subtle);
+        border-radius: 20px;
+    }
+}
+
+.modal-content {
+    background-color: var(--bs-body-bg);
+
+    // Add a glass effect for dark mode specifically
+    [data-bs-theme="dark"] & {
+        background-color: rgba(var(--bs-body-bg-rgb), 0.95);
+        backdrop-filter: blur(10px);
+    }
+
+    .title-accent {
+        width: 4px;
+        height: 24px;
+        background: var(--bs-primary);
+        border-radius: 10px;
+        display: inline-block;
+    }
+
+    .description-item {
+        background: var(--bs-tertiary-bg);
+        border: 1px solid transparent;
+        transition: all 0.3s ease;
+
+        &:hover {
+            border-color: var(--bs-primary-border-subtle);
+            transform: translateX(5px);
+            background: var(--bs-secondary-bg);
+        }
+    }
+
+    .tech-tag {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        background: var(--bs-body-bg);
+        border: 1px solid var(--bs-border-color);
+        color: var(--bs-body-color);
+        transition: all 0.3s ease;
+
+        &:hover {
+            border-color: var(--bs-primary);
+            color: var(--bs-primary);
+            background: var(--bs-primary-bg-subtle);
+        }
+    }
+}
+
+// Ensure the modal header and footer feel "locked" but integrated
+.modal-header,
+.modal-footer {
+    background-color: var(--bs-body-bg);
+    z-index: 2;
+}
+
+// Smooth transition for the modal pop
+.modal.fade .modal-dialog {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }

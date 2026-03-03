@@ -202,10 +202,10 @@ export class ProjectsComponent {
     return values.length > 0 ? String(values[0]) : '';
   }
 
-  ngAfterViewInit() {
-    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    tooltipTriggerList.map((tooltipTriggerEl) => {
-      return new bootstrap.Tooltip(tooltipTriggerEl);
-    });
-  }
+  // ngAfterViewInit() {
+  //   const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  //   tooltipTriggerList.map((tooltipTriggerEl) => {
+  //     return new bootstrap.Tooltip(tooltipTriggerEl);
+  //   });
+  // }
 }

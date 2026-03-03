@@ -7,10 +7,11 @@ import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { ThemeService } from './services/theme.service';
 import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, NgxSpinnerModule, DisableRightClickDirective, HeaderComponent, FooterComponent, ScrollTopComponent],
+  imports: [RouterOutlet, CommonModule, NgxSpinnerModule, DisableRightClickDirective, NavbarComponent, FooterComponent, ScrollTopComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

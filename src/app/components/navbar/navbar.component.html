@@ -1,0 +1,81 @@
+<!-- <div class="scroll-progress-container">
+    <div class="scroll-progress-bar" [style.width.%]="scrollProgress()"></div>
+</div> -->
+
+<nav class="navbar navbar-expand-lg fixed-top transition-all"
+    [ngClass]="isScrolled() ? 'navbar-glass shadow-sm py-2' : 'bg-transparent py-4'">
+    <div class="container">
+
+        <a class="navbar-brand fw-bolder fs-3" routerLink="/">
+            <span class="brand-gradient">{{websiteName}}</span><span class="text-primary">.</span>
+        </a>
+
+        <div class="collapse navbar-collapse d-none d-lg-block">
+            <ul class="navbar-nav ms-auto align-items-center">
+                @for (link of navLinks; track link.path) {
+                <li class="nav-item mx-2">
+                    <a class="nav-link modern-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{ exact: true }" [routerLink]="link.path">
+                        {{ link.label }}
+                    </a>
+                </li>
+                }
+                <li class="nav-item ms-4">
+                    <app-theme-toggler />
+                </li>
+            </ul>
+        </div>
+
+        <div class="d-flex align-items-center d-lg-none">
+            <app-theme-toggler class="me-3" />
+            <!-- <button class="navbar-toggler modern-toggler" (click)="openMenubar()">
+                <i class="bi bi-grid-fill"></i>
+            </button> -->
+            <button class="theme-toggle-btn shadow" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#mobileMenu" aria-controls="mobileMenu">
+                <i class="bi bi-grid-fill"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<div class="offcanvas offcanvas-end border-0" data-bs-backdrop="static" tabindex="-1" id="mobileMenu"
+    aria-labelledby="mobileMenuLabel">
+
+    <div class="offcanvas-header border-bottom p-4">
+        <h5 class="offcanvas-title fw-bold" id="mobileMenuLabel">Navigation</h5>
+        <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body p-4 d-flex flex-column">
+        <ul class="navbar-nav gap-3">
+            @for (item of navLinks; track item.id) {
+            <li class="nav-item">
+                <a class="nav-link fw-medium py-3 px-4 rounded-5 bg-body-tertiary d-flex justify-content-between align-items-center"
+                    routerLink="{{item.path}}" routerLinkActive="active-mobile" data-bs-dismiss="offcanvas">
+                    {{item.label}}
+                    <i class="bi bi-arrow-right-short opacity-50"></i>
+                </a>
+            </li>
+            }
+        </ul>
+
+        <div class="mt-auto">
+            <!-- <a routerLink="/list-property" class="btn btn-primary w-100 rounded-pill py-3 fw-bold shadow"
+                data-bs-dismiss="offcanvas">
+                List Your Property
+            </a> -->
+            <div class="mb-0 text-center">
+                <span class="icon-wrapper">
+                    <i class="bi bi-c-circle"></i>
+                </span>
+                <span class="year mx-2">{{ currentYear }}.</span>
+                <span class="text">All Rights Reserved.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- @if (isMobileMenuOpen()) {
+<div class="offcanvas-backdrop fade show" (click)="openMenubar()"></div>
+} -->

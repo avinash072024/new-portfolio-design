@@ -18,7 +18,7 @@ export class ThemeService {
   // 1. Call this immediately on app startup
   initTheme() {
     if (isPlatformBrowser(this.platformId)) {
-      const savedTheme = localStorage.getItem(this.themeKey) || 'dark';
+      const savedTheme = localStorage.getItem(this.themeKey) || 'light';
       this.applyTheme(savedTheme);
     }
   }

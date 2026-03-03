@@ -181,7 +181,15 @@ export class ProjectsComponent {
     },
   ];
 
+  ngOnInit() {
+    let savedViewMode = localStorage.getItem('projects-view-mode') as 'grid' | 'list';
+    if (savedViewMode) {
+      this.viewMode.set(savedViewMode);
+    }
+  }
+
   toggleView(mode: 'grid' | 'list') {
+    localStorage.setItem('projects-view-mode', mode);
     this.viewMode.set(mode);
   }
 
